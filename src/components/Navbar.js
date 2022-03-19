@@ -7,8 +7,8 @@ export const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-black bg-black">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            Quizup{" "}
-          </a>{" "}
+            Quizup
+          </a>
           <button
             className="navbar-toggler"
             type="button"
@@ -18,20 +18,20 @@ export const Navbar = () => {
             aria_expanded="false"
             aria_label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"> </span>{" "}
-          </button>{" "}
+            <span className="navbar-toggler-icon"> </span>
+          </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link active" aria_current="page" href="/">
-                  Home{" "}
-                </a>{" "}
-              </li>{" "}
+                  Home
+                </a>
+              </li>
               <li className="nav-item">
                 <a className="nav-link" href="/">
-                  About{" "}
-                </a>{" "}
-              </li>{" "}
+                  About
+                </a>
+              </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -41,44 +41,44 @@ export const Navbar = () => {
                   data_bs_toggle="dropdown"
                   aria_expanded="false"
                 >
-                  Quiz{" "}
-                </a>{" "}
+                  Quiz
+                </a>
                 <ul className="dropdown-menu" aria_labelledby="navbarDropdown">
                   <li>
                     <a className="dropdown-item" href="/">
-                      Action{" "}
-                    </a>{" "}
-                  </li>{" "}
+                      Action
+                    </a>
+                  </li>
                   <li>
                     <a className="dropdown-item" href="/">
-                      Another action{" "}
-                    </a>{" "}
-                  </li>{" "}
+                      Another action
+                    </a>
+                  </li>
                   <li>
                     <hr className="dropdown-divider" />
-                  </li>{" "}
+                  </li>
                   <li>
                     <a className="dropdown-item" href="/">
-                      Something else here{" "}
-                    </a>{" "}
-                  </li>{" "}
-                </ul>{" "}
-              </li>{" "}
+                      Something else here
+                    </a>
+                  </li>
+                </ul>
+              </li>
               <li className="nav-item">
-                <a className="nav-link disabled"> Contact </a>{" "}
-              </li>{" "}
-            </ul>{" "}
+                <a className="nav-link disabled"> Contact </a>
+              </li>
+            </ul>
             <form className="d-flex">
               <button className="btn btn-outline-success mx-2" type="submit">
-                Signup{" "}
-              </button>{" "}
+                Signup
+              </button>
               <button className="btn btn-outline-success mx-2" type="submit">
-                Login{" "}
-              </button>{" "}
-            </form>{" "}
-          </div>{" "}
-        </div>{" "}
-      </nav>{" "}
+                Login
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
     </>
   );
 };
