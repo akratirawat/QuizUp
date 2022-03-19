@@ -1,0 +1,11 @@
+.navbar-brand {
+    margin-left: 100px;
+}
+
+.navbar-nav me-auto mb-2 mb-lg-0 {
+    text-align: center;
+}
+
+.d-flex btn btn-outline-success {
+    margin-left: 300px;
+}
