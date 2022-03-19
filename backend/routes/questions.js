@@ -3,7 +3,9 @@ const router = express.Router();
 const Question = require('../models/Questions');
 const { body, validationResult } = require('express-validator');
 var fetchAdmin = require('../middleware/fetchAdmin');
-//ROUTE 1: Get all the question using : Get"/api/notes/getuser": login required
+
+
+//ROUTE 1: Get all the question using : Get"/api/notes/fetchallquestions": login required
 router.get('/fetchallquestions', fetchAdmin, async(req, res) => {
         try {
             const questions = await Question.find({ admin: req.admin.id })
