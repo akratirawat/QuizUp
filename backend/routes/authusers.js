@@ -6,22 +6,11 @@ const bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 var fetchUsers = require('../middleware/fetchUsers');
 const JWT_SECRET = 'thisisquizupapp';
-var fetchAdmin = require('../middleware/fetchAdmin');
 
 
 
-//ROUTE 1: Get all the users using : Get"/api/authusers/getallusers": login required
-router.get('/getallUsers', fetchAdmin, async(req, res) => {
-    try {
-        const users = await Users.find({ admin: req.admin.id })
-        return res.json(users)
-    } catch (error) {
-        console.error(error.message);
-        res.status(500).send("Internal Server Error");
-    }
-})
 
-//ROUTE 2: create a user using POST: /api/authusers/createUsers  Don't require No login required
+//ROUTE 1: create a user using POST: /api/authusers/createUsers  Don't require No login required
 router.post(
     '/createUsers', [
         body('username', 'Enter a valid username').isLength({ min: 3 }),
@@ -120,16 +109,16 @@ router.post(
     }
 );
 
-//ROUTE 3: Get logged in user details using : post '/api/auth/getuser': login required
+//ROUTE 3: Get logged in user details using : post '/api/authusers/getUsers': login required
 router.post('/getUsers', fetchUsers, async(req, res) => {
     try {
         usersId = req.users.id;
-        const users = await Users.findById(usersId).select('-password');
-        res.send();
+        const users = await Users.findById(usersId).select("-password");
+        res.send(users);
     } catch (error) {
         console.error(error.message);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send("Internal Server Error");
     }
-});
+})
 
 module.exports = router;

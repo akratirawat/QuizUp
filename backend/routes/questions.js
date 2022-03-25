@@ -3,12 +3,19 @@ const router = express.Router();
 const Question = require('../models/Questions');
 const { body, validationResult } = require('express-validator');
 var fetchAdmin = require('../middleware/fetchAdmin');
-
-
-//ROUTE 1: Get all the question using : Get"/api/notes/fetchallquestions": login required
+//ROUTE 1: Get all the notes using : Get"/api/notes/getuser": login required
 router.get('/fetchallquestions', fetchAdmin, async(req, res) => {
+    try {
+        const questions = await Question.find({ admin: req.admin.id })
+        return res.json(questions)
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+router.get('/fetchalluserquestions', async(req, res) => {
         try {
-            const questions = await Question.find({ admin: req.admin.id })
+            const questions = await Question.find();
             return res.json(questions)
         } catch (error) {
             console.error(error.message);
@@ -74,7 +81,7 @@ router.put('/updatequestion/:id', fetchAdmin, async(req, res) => {
 
 })
 
-//ROUTE 4: Delete an existing question using delete : Get"/api/questions/deletequestions": login required
+//ROUTE 4: Delete an existing question using delete : Get"/api/questions/deletequestion": login required
 router.delete('/deletequestion/:id', fetchAdmin, async(req, res) => {
     try {
 

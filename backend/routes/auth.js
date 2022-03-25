@@ -87,7 +87,7 @@ router.post('/login', [
     }
 });
 
-//ROUTE 3: Get logged in user details using : post "/api/auth/getAdmin": login required
+//ROUTE 3: Get logged in user details using : post "/api/auth/getuser": login required
 router.post('/getAdmin', fetchAdmin, async(req, res) => {
     try {
         adminId = req.admin.id;
