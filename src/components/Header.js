@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "./css/header.css";
-import Button from "./Button";
 import "./css/button.css";
 import MainImage from './photos/picture.jpg'
 import AOS from "aos";
@@ -25,10 +24,6 @@ const Header = () => {
             <p className="u-text-small">
               QuizUp is an online learning platform to test your aptitude skills with a wide range of questions from various topics such as time , ratio and proportion , percentage, probability, logarithms, numbers, simple interest and many more.
             </p>
-            <div className="header-cta">
-              <Button text={"Get Started"} btnClass={"buttn-light"} href={"#"} />
-              <Button text={"How It Works"} btnClass={"buttn-light"} href={"#"} />
-            </div>
           </div>
           <div className="header-right" data-aos="fade-left">
             <img src={MainImage} alt="quiz" />
@@ -44,10 +39,10 @@ const Header = () => {
           padding: "0rem 0rem 0rem 7rem",
           fontSize: " 1.4rem", fontFamily: "Roboto", color: "white"
         }}>Take a quick quiz and get the instant results.</h4>
-        <button style={{
+        <a style={{
           padding: "0.5rem 1.8rem",
-          margin: "-5rem 4rem 0rem 70rem"
-        }} type="button" class="btn btn-light shadow mb-4 bg-white rounded">SIGN UP NOW</button>
+          margin: "-5rem 4rem 0rem 70rem" 
+        }} href="#mybox" type="button" class="btn btn-light shadow mb-4 bg-white rounded">TRY IT OUT NOW</a>
       </div>
     </>
   );

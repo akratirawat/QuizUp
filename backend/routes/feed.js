@@ -1,25 +1,22 @@
 const express = require('express')
 const router = express.Router();
-const Feedbacks = require('../models/Feedbacks');
+const Feedback = require('../models/Feedback');
 const { body, validationResult } = require('express-validator');
 var fetchAdmin = require('../middleware/fetchAdmin');
 var fetchUsers = require('../middleware/fetchUsers');
 
 //ROUTE 1: Get all the feedback using : Get"/api/feedbacks/getallfeedbacks": login required
-router.get('/getallfeedbacks', fetchAdmin, async(req, res) => {
+router.get('/getallfeedbacks', async(req, res) => {
     try {
-        const feedbacks = await Feedbacks.find({ admin: req.admin.id })
+        const feedbacks = await Feedback.find()
         return res.json(feedbacks)
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal Server Error");
     }
 })
-
-
-//ROUTE 2: Add a new question using POST : Get"/api/feedbacks/addfeedback": login required
 router.post('/addfeedback', fetchUsers, [
-    body('msg', )
+    body('msg', 'Enter a valid message').isLength({ min: 3 }),
 ], async(req, res) => {
     try {
         const { msg } = req.body;
@@ -29,9 +26,9 @@ router.post('/addfeedback', fetchUsers, [
             return res.status(400).json({ errors: errors.array() });
         }
 
-        const feedback = new Feedbacks({
+        const feedback = new Feedback({
             msg,
-
+            user: req.users.id
         })
         const savedfeedback = await feedback.save();
         res.json(savedfeedback);
@@ -40,7 +37,5 @@ router.post('/addfeedback', fetchUsers, [
         res.status(500).send("Internal Server Error");
     }
 })
-
-
 
 module.exports = router

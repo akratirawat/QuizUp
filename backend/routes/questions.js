@@ -81,7 +81,7 @@ router.put('/updatequestion/:id', fetchAdmin, async(req, res) => {
 
 })
 
-//ROUTE 4: Delete an existing question using delete : Get"/api/questions/deletequestion": login required
+//ROUTE 4: Delete an existing question using delete : Get"/api/questions/deletequestions": login required
 router.delete('/deletequestion/:id', fetchAdmin, async(req, res) => {
     try {
 

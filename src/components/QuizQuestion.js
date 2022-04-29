@@ -1,5 +1,5 @@
 import { Button } from "@material-ui/core";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useNavigate } from "react-router";
 import ErrorMessage from "./ErrorMessage"
 import "./css/quizQuestion.css";
@@ -18,7 +18,7 @@ const QuizQuestion = ({
   const [selected, setSelected] = useState();
   const [error, setError] = useState(false);
 
-  const history = useNavigate();
+  let history = useNavigate();
 
   const handleSelect = (i) => {
     if (selected === i && selected === correct) return "select";
@@ -33,8 +33,8 @@ const QuizQuestion = ({
   };
 
   const handleNext = () => {
-    if (currQues > 3) {
-    //   history.push("/result");
+    if (currQues >= (questions.length-1) && selected) {
+       history("/result");
     } else if (selected) {
       setCurrQues(currQues + 1);
       setSelected();
@@ -44,11 +44,28 @@ const QuizQuestion = ({
   const handleQuit = () => {
     setCurrQues(0);
     setQuestions();
+    history("/user")
   };
+  const [seconds, setSeconds] = useState(120);
+  useEffect(() => {
+    let interval = null;
+      interval = setInterval(() => {
+        setSeconds(seconds => seconds - 1);
+      }, 1000);
+      if ( seconds === 0) {
+      clearInterval(interval);
+      history("/result");
+    }
+    return () => clearInterval(interval);
+  }, [ seconds]);
 
   return (
-    <div className="question">
-      <h1>Question {currQues + 1} :</h1>
+    <div className="question my-4">
+      <h1>Question {currQues + 1} of {questions.length}</h1>
+      <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec">{seconds} s</div>
+            </div>
 
       <div className="singleQuestion">
         <h2>{questions[currQues].questiondesc}</h2>
@@ -72,7 +89,7 @@ const QuizQuestion = ({
             color="secondary"
             size="large"
             style={{ width: 185 }}
-            href="/"
+            href="/user"
             onClick={() => handleQuit()}
           >
             Quit
@@ -84,7 +101,7 @@ const QuizQuestion = ({
             style={{ width: 185 }}
             onClick={handleNext}
           >
-            {currQues > 3 ? "Submit" : "Next Question"}
+            {currQues === (questions.length-1) ? "Submit" : "Next Question"}
           </Button>
         </div>
       </div>

@@ -5,7 +5,7 @@ const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 var fetchUsers = require('../middleware/fetchUsers');
-const JWT_SECRET = 'thisisquizupapp';
+const JWT_SECRET = 'thisisquizupappusers';
 
 
 
@@ -115,6 +115,18 @@ router.post('/getUsers', fetchUsers, async(req, res) => {
         usersId = req.users.id;
         const users = await Users.findById(usersId).select("-password");
         res.send(users);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
+//ROUTE 4: Fetch all users : : post '/api/authusers/fetchallusers'
+
+router.get('/fetchallusers', async(req, res) => {
+    try {
+        const users = await Users.find()
+        return res.json(users)
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal Server Error");

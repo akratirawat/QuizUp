@@ -1,5 +1,5 @@
 var jwt = require('jsonwebtoken');
-const JWT_SECRET = 'thisisquizupapp';
+const JWT_SECRET = 'thisisquizupappusers';
 const fetchUsers = (req, res, next) => {
     //Get the admin from the jwt token and add id to req object
     const token = req.header('auth-token');

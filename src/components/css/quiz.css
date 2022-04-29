@@ -11,6 +11,7 @@
     border: 1px solid black;
     box-shadow: 4px 4px 2px black;
     padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .quizInfo {

@@ -23,14 +23,9 @@ const Quiz = ({questions, score, setScore, setQuestions }) => {
 
   return (
     <div className="quiz">
-      <span className="subtitle">Welcome UserName</span>
+      <span className="subtitle">Welcome to QuizUp</span>
       {questions ? (
         <>
-          <div className="quizInfo">
-            <span>
-              Score : {score}
-            </span>
-          </div>
           <QuizQuestion
             currQues={currQues}
             setCurrQues={setCurrQues}

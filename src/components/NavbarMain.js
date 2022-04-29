@@ -1,6 +1,5 @@
 import React from 'react'
 import './css/navbarmain.css';
-import logo from './photos/logo.png'
 const Navbar = () => {
   return (
     
@@ -8,7 +7,6 @@ const Navbar = () => {
         <div className="navi-menu flexi-row">
             <div className="navi-brand">
                 <a href="#" className="text-gray"><strong><i>QUIZUP</i></strong></a>
-                {/* <img src={logo} alt="quizuplogo" className="logo" /> */}
             </div>
             <div className="togggle-collapsse">
                 <div className="togggle-icons">
@@ -18,27 +16,24 @@ const Navbar = () => {
             <div>
                 <ul className="navi-items">
                     <li className="navi-link">
-                        <a href="#">Home</a>
+                        <a href="#header">Home</a>
                     </li>
                     <li className="navi-link">
-                        <a href="#">About</a>
+                        <a href="#features">About</a>
                     </li>
                     <li className="navi-link">
-                        <a href="#">Quiz</a>
+                        <a href="#topics">Quiz Topics</a>
                     </li>
                     <li className="navi-link">
-                        <a href="#">Know More</a>
-                    </li>
-                    <li className="navi-link">
-                        <a href="#">Contact Us</a>
+                        <a href="#footer">Contact Us</a>
                     </li>
                 </ul>
             </div>
             <div className="social text-gray">
-                <a href="#"><i className="fab fa-facebook-f"></i></a>
-                <a href="#"><i className="fab fa-instagram"></i></a>
-                <a href="#"><i className="fab fa-twitter"></i></a>
-                <a href="#"><i className="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/" target="_blank"><i className="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i className="fab fa-instagram"></i></a>
+                <a href="https://www.twitter.com/" target="_blank"><i className="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/" target="_blank"><i className="fab fa-youtube"></i></a>
             </div>
         </div>
     </nav>

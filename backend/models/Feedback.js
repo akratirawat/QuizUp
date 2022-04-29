@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const FeedbacksSchema = new Schema({
-    admin: {
+const FeedbackSchema = new Schema({
+    user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'admins'
+        ref: 'users'
     },
 
 
@@ -18,5 +18,5 @@ const FeedbacksSchema = new Schema({
     }
 
 });
-//user is the model name here and Userschema is the name of the schema which we are sending 
-module.exports = mongoose.model('feedbacks', FeedbacksSchema)
+
+module.exports = mongoose.model('feedbacks', FeedbackSchema)

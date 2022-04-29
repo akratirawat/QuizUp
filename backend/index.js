@@ -10,11 +10,9 @@ app.use(cors())
 app.use(express.json())
     //Available routes
 app.use('/api/auth', require('./routes/auth'))
-app.use('/api/authusers', require('./routes/authusers'))
+app.use('/api/users', require('./routes/authUsers'))
 app.use('/api/questions', require('./routes/questions'))
-app.use('/api/users', require('./routes/users'))
-app.use('/api/feedbacks', require('./routes/feedbacks'))
-app.use('/api/results', require('./routes/results'))
+app.use('/api/feedback', require('./routes/feed'))
 
 app.get('/', (req, res) => {
     res.send("Hello world");
